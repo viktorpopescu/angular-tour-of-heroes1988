@@ -5,4 +5,5 @@
   <a routerLink="/heroes">Heroes</a>
 </nav>
 <router-outlet></router-outlet>
-<app-messages></app-messages>
+<app-messages [somevar]="12" (change)="countChange($event)"></app-messages>
+<div>{{myCount}}</div>

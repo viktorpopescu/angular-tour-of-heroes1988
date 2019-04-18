@@ -4,5 +4,6 @@
   <button class="clear"
           (click)="messageService.clear()">clear</button>
   <div *ngFor='let message of messageService.messages'> {{message}} </div>
-
+  <button (click)="increment()">Increment</button>
+  <button [style.color]="flag ? 'red': 'green'" (click)="toggle($event.target)">{{flag ? 'red': 'green'}} {{event}}</button>
 </div>

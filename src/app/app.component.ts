@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import { Hero } from "./hero";
+import {debounceTime} from "rxjs/operators";
 
 @Component({
     selector: 'app-root',
@@ -19,8 +20,9 @@ import { Hero } from "./hero";
 //             </li>
 //         </ul>
 //         <label>Type something:
-//             <input #customerInput>{{customerInput.value}}
+//             <input #customerInput on-input="shows(customerInput.value)"><p>{{text}}
 //         </label>
+//         <button [disabled]="false">Enabled</button>.
 // <!--        <div>{{customerInput.value}}</div>-->
 //     `,
     styleUrls: ['./app.component.css']
@@ -28,6 +30,12 @@ import { Hero } from "./hero";
 export class AppComponent {
     // title = 'Tour of Heroz';
     // myHero = 'Windstorm';
+    text="start";
+    shows(text: string): void{
+        // debounceTime(300);
+        this.text = text;
+    }
+
     heroes = [
        new Hero(1,'Windstorm'),
        new Hero(13,'Bombasto'),
@@ -41,5 +49,10 @@ export class AppComponent {
     }
 
     summs(a,b): number {return a+b;}
+
+    myCount: number = 10;
+    countChange(event) {
+        this.myCount = event;
+    }
 }
 
